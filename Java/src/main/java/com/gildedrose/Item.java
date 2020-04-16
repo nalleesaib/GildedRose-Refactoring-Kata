@@ -1,5 +1,6 @@
 package com.gildedrose;
-
+/**
+ * Item*/
 public class Item {
 
     public String name;
