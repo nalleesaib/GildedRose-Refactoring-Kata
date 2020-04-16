@@ -3,6 +3,7 @@ package com.gildedrose;
 public class CustomGildedRose {
     Item[] items;
 
+
     public CustomGildedRose(Item[] items) {
         this.items = items;
     }
@@ -21,15 +22,19 @@ public class CustomGildedRose {
 
             if (items[i].sellIn < 0) {
                 if (!items[i].name.equals("Aged Brie")) {
-                    if (!items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        decreaseQualityByOneForSulfuras(items[i]);
-                    } else {
-                        items[i].quality = items[i].quality - items[i].quality;
-                    }
+                    isNameNotEqualsBackstage(items[i]);
                 } else {
                     increaseQuanlityByOne(items[i]);
                 }
             }
+        }
+    }
+
+    private void isNameNotEqualsBackstage(Item item) {
+        if (!item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            decreaseQualityByOneForSulfuras(item);
+        } else {
+            item.quality = item.quality - item.quality;
         }
     }
 
