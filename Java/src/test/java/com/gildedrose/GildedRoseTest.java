@@ -116,4 +116,20 @@ public class GildedRoseTest {
         Assertions.assertThat(app.items[0].quality).isEqualTo(13);
         Assertions.assertThat(app.items[0].sellIn).isEqualTo(-2);
     }
+
+    @Test
+    public void testBackstageSellingLessThan1Quality15() {
+        // Given
+        Item[] items = new Item[]{new Item(BACKSTAGE, -1, 15)};
+        GildedRose app = new GildedRose(items);
+
+        // When
+        app.updateQuality();
+
+        // Then
+        Assertions.assertThat(app.items[0].quality).isEqualTo(0);
+        Assertions.assertThat(app.items[0].sellIn).isEqualTo(-2);
+    }
+
+
 }
